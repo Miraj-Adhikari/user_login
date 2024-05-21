@@ -1,0 +1,16 @@
+{% extends 'layouts/app.html' %}
+
+{% block title %}Landing Page{% endblock %}
+
+{% block layout_1 %}
+
+<center><h1 class="mt-3 mb-3">Welcome To My Website.</h1></center>
+
+<div class="image-container">
+    {% for i in num_times %}
+        <img src="{{ image_url }}" alt="Image {{ i }}">
+    {% endfor %}
+</div>
+
+
+{% endblock %}

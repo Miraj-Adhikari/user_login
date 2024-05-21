@@ -1,0 +1,42 @@
+{% extends 'layouts/app.html' %}
+{% block title %}Login Page{% endblock %}
+
+{% block layout_1 %}
+
+{% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-dismissible alert-success">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>{{ message }}</strong>.
+        </div> 
+        {% endfor %}
+
+    {% endif %}
+
+{% if user.is_authenticated %}
+<div class="container" style="margin-top: 50px;">
+    <center><h1>Hello, {{ user.email }} </h1></center>
+</div>
+{% else %}
+
+<div style="margin-top: 50px;" class="ms-3 mt-4 col-6">
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div>
+            <label for="username" class="form-label mt-3">Username</label>
+            <input type="username" name="username" class="form-control" id="username"  placeholder="Enter username">
+          </div>
+          <div>
+            <label for="password" class="form-label mt-3">Password</label>
+            <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+          </div>
+       
+          <button type="submit" class="btn btn-primary mt-3 mb-3">Login</button>
+    </form>
+
+</div>
+
+{% endif %}
+
+{% endblock %}
